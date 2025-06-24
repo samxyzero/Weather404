@@ -3,7 +3,10 @@ import { useState, useEffect } from "react";
 import { Droplets, Eye, MapPin, Wind, Gauge, Cloud, Zap } from "lucide-react";
 import { Card, CardContent } from "./ui/card";
 
-import type { TCurrentWeatherData } from "~/interface/interface.index";
+import type {
+  TCurrentWeatherData,
+  TLocation,
+} from "~/interface/interface.index";
 import { getCurrentWeather } from "~/lib/weather.api";
 import WeatherIcon from "./ui/weatherIcon";
 
@@ -15,7 +18,7 @@ interface WeatherStats {
 }
 
 interface WeatherComponentProps {
-  location?: string;
+  location: TLocation;
   unit: "imperial" | "metric";
 }
 
@@ -101,25 +104,37 @@ export default function Weather({ location, unit }: WeatherComponentProps) {
 
   if (loading) {
     return (
-      <div className="flex items-center justify-center p-8">
-        <div className="text-xl text-white">Loading weather data...</div>
-      </div>
+      <Card className="border-white/30 bg-white/20 shadow-xl backdrop-blur-md">
+        <CardContent className="p-6">
+          <div className="flex items-center justify-center p-8">
+            <div className="text-xl text-white">Loading weather data...</div>
+          </div>
+        </CardContent>
+      </Card>
     );
   }
 
   if (error) {
     return (
-      <div className="flex items-center justify-center p-8">
-        <div className="text-xl text-red-300">Error: {error}</div>
-      </div>
+      <Card className="border-white/30 bg-white/20 shadow-xl backdrop-blur-md">
+        <CardContent className="p-6">
+          <div className="flex items-center justify-center p-8">
+            <div className="text-xl text-red-300">Error: {error}</div>
+          </div>
+        </CardContent>
+      </Card>
     );
   }
 
   if (!weatherData) {
     return (
-      <div className="flex items-center justify-center p-8">
-        <div className="text-xl text-white">No weather data available</div>
-      </div>
+      <Card className="border-white/30 bg-white/20 shadow-xl backdrop-blur-md">
+        <CardContent className="p-6">
+          <div className="flex items-center justify-center p-8">
+            <div className="text-xl text-white">No weather data available</div>
+          </div>
+        </CardContent>
+      </Card>
     );
   }
 

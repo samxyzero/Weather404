@@ -3,7 +3,7 @@
 import { useState, useEffect } from "react";
 import { Droplets, Wind, Eye, Thermometer, Cloud, Gauge } from "lucide-react";
 import { Card, CardContent } from "./ui/card";
-import type { TForecastData } from "~/interface/interface.index";
+import type { TForecastData, TLocation } from "~/interface/interface.index";
 import { getForecast } from "~/lib/weather.api";
 import WeatherIcon from "./ui/weatherIcon";
 import { Button } from "./ui/button";
@@ -26,7 +26,7 @@ interface THourlyWeatherData {
 }
 
 interface HourlyWeatherProps {
-  location: string;
+  location: TLocation;
   unit: "imperial" | "metric";
   hoursToShow?: number;
   showDetails?: boolean;

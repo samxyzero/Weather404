@@ -1,5 +1,5 @@
 
-import type { TAstronomyData,  TCurrentWeatherData, TForecastData, TWeatherAPIError } from "~/interface/interface.index";
+import type { TAstronomyData,  TCurrentWeatherData, TForecastData, TLocation, TWeatherAPIError } from "~/interface/interface.index";
 
 
 export async function fetchWeatherFromServer<T>(endpoint: string, params: Record<string, string | number>): Promise<T> {
@@ -22,7 +22,6 @@ export async function fetchWeatherFromServer<T>(endpoint: string, params: Record
     throw new Error('Failed to fetch weather data');
   }
 }
-
 
 export async function getCurrentWeather(
   location: string,
@@ -91,10 +90,8 @@ export async function getForecast(
   
 }
 
-
-
 export async function getAstronomy(
-  location: string,
+   location: TLocation,
   date?: string
 ): Promise<TAstronomyData> {
   const params: Record<string, string> = { q: location };

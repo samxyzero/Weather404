@@ -3,11 +3,11 @@ import { useState, useEffect } from "react";
 import { Sun, Sunrise, Sunset, MapPin, Clock } from "lucide-react";
 import { Card, CardContent } from "./ui/card";
 
-import type { TAstronomyData } from "~/interface/interface.index";
+import type { TAstronomyData, TLocation } from "~/interface/interface.index";
 import { getAstronomy } from "~/lib/weather.api";
 
 interface AstronomyComponentProps {
-  location: string;
+  location: TLocation;
 }
 
 interface SunMoonStats {
@@ -116,25 +116,37 @@ export function SunInfo({ location }: AstronomyComponentProps) {
 
   if (loading) {
     return (
-      <div className="flex items-center justify-center p-8">
-        <div className="text-xl text-white">Loading sun data...</div>
-      </div>
+      <Card className="border-white/30 bg-white/20 shadow-xl backdrop-blur-md">
+        <CardContent className="p-6">
+          <div className="flex items-center justify-center p-8">
+            <div className="text-xl text-white">Loading sun data...</div>
+          </div>
+        </CardContent>
+      </Card>
     );
   }
 
   if (error) {
     return (
-      <div className="flex items-center justify-center p-8">
-        <div className="text-xl text-red-300">Error: {error}</div>
-      </div>
+      <Card className="border-white/30 bg-white/20 shadow-xl backdrop-blur-md">
+        <CardContent className="p-6">
+          <div className="flex items-center justify-center p-8">
+            <div className="text-xl text-red-300">Error: {error}</div>
+          </div>
+        </CardContent>
+      </Card>
     );
   }
 
   if (!astronomyData) {
     return (
-      <div className="flex items-center justify-center p-8">
-        <div className="text-xl text-white">No sun data available</div>
-      </div>
+      <Card className="border-white/30 bg-white/20 shadow-xl backdrop-blur-md">
+        <CardContent className="p-6">
+          <div className="flex items-center justify-center p-8">
+            <div className="text-xl text-white">No sun data available</div>
+          </div>
+        </CardContent>
+      </Card>
     );
   }
 
@@ -266,25 +278,37 @@ export function MoonInfo({ location }: AstronomyComponentProps) {
 
   if (loading) {
     return (
-      <div className="flex items-center justify-center p-8">
-        <div className="text-xl text-white">Loading moon data...</div>
-      </div>
+      <Card className="border-white/30 bg-white/20 shadow-xl backdrop-blur-md">
+        <CardContent className="p-6">
+          <div className="flex items-center justify-center p-8">
+            <div className="text-xl text-white">Loading moon data...</div>
+          </div>
+        </CardContent>
+      </Card>
     );
   }
 
   if (error) {
     return (
-      <div className="flex items-center justify-center p-8">
-        <div className="text-xl text-red-300">Error: {error}</div>
-      </div>
+      <Card className="border-white/30 bg-white/20 shadow-xl backdrop-blur-md">
+        <CardContent className="p-6">
+          <div className="flex items-center justify-center p-8">
+            <div className="text-xl text-red-300">Error: {error}</div>
+          </div>
+        </CardContent>
+      </Card>
     );
   }
 
   if (!astronomyData) {
     return (
-      <div className="flex items-center justify-center p-8">
-        <div className="text-xl text-white">No moon data available</div>
-      </div>
+      <Card className="border-white/30 bg-white/20 shadow-xl backdrop-blur-md">
+        <CardContent className="p-6">
+          <div className="flex items-center justify-center p-8">
+            <div className="text-xl text-white">No moon data available</div>
+          </div>
+        </CardContent>
+      </Card>
     );
   }
 

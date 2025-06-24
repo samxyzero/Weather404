@@ -12,12 +12,12 @@ import {
 } from "lucide-react";
 import { Card, CardContent } from "./ui/card";
 
-import type { TForecastData } from "~/interface/interface.index";
+import type { TForecastData, TLocation } from "~/interface/interface.index";
 import { getForecast } from "~/lib/weather.api";
 import WeatherIcon from "./ui/weatherIcon";
 
 interface ForecastComponentProps {
-  location: string;
+  location: TLocation;
   unit: "imperial" | "metric";
 }
 
@@ -124,25 +124,37 @@ export default function SevenDayForecast({
 
   if (loading) {
     return (
-      <div className="flex items-center justify-center p-8">
-        <div className="text-xl text-white">Loading 7-day forecast...</div>
-      </div>
+      <Card className="border-white/30 bg-white/20 shadow-xl backdrop-blur-md">
+        <CardContent className="p-6">
+          <div className="flex items-center justify-center p-8">
+            <div className="text-xl text-white">Loading 7-day forecast...</div>
+          </div>
+        </CardContent>
+      </Card>
     );
   }
 
   if (error) {
     return (
-      <div className="flex items-center justify-center p-8">
-        <div className="text-xl text-red-300">Error: {error}</div>
-      </div>
+      <Card className="border-white/30 bg-white/20 shadow-xl backdrop-blur-md">
+        <CardContent className="p-6">
+          <div className="flex items-center justify-center p-8">
+            <div className="text-xl text-red-300">Error: {error}</div>
+          </div>
+        </CardContent>
+      </Card>
     );
   }
 
   if (!forecastData) {
     return (
-      <div className="flex items-center justify-center p-8">
-        <div className="text-xl text-white">No forecast data available</div>
-      </div>
+      <Card className="border-white/30 bg-white/20 shadow-xl backdrop-blur-md">
+        <CardContent className="p-6">
+          <div className="flex items-center justify-center p-8">
+            <div className="text-xl text-white">No forecast data available</div>
+          </div>
+        </CardContent>
+      </Card>
     );
   }
 

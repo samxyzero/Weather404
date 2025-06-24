@@ -7,7 +7,10 @@ export interface TLocationData {
   tz_id: string;
   localtime_epoch: number;
   localtime: string;
+
 }
+
+export type TLocation = string;
 
 export interface TCurrentWeatherData {
   location: TLocationData;
