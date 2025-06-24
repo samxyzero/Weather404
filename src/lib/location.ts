@@ -13,9 +13,9 @@ export  function GetLocation(city?: { city: string }) {
         (position) => {
           setLocation(`${position.coords.latitude},${position.coords.longitude}`);
         },
-        (error) => {
-          console.error("Geolocation error:", error);
-        }
+        // (error) => {
+        //   console.error("Geolocation error:ggggggg", error);
+        // }
       );
     } else {
       setLocation("Pokhara");
