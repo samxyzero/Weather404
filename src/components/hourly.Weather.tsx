@@ -26,15 +26,15 @@ interface THourlyWeatherData {
 }
 
 interface HourlyWeatherProps {
-  location?: string;
-  unit?: "imperial" | "metric";
+  location: string;
+  unit: "imperial" | "metric";
   hoursToShow?: number;
   showDetails?: boolean;
 }
 
 export default function HourlyWeather({
-  location = "Pokhara",
-  unit = "metric",
+  location,
+  unit,
   hoursToShow = 24,
   showDetails = true,
 }: HourlyWeatherProps) {

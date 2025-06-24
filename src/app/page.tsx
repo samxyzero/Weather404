@@ -13,7 +13,7 @@ import cities from "cities-list";
 export default function HomePage() {
   const [searchQuery, setSearchQuery] = useState<string>("");
   const [currentLocation, setCurrentLocation] = useState<string>(
-    GetLocation() ?? "Pokhara",
+    GetLocation() ?? "Paris",
   );
   const [unit, setUnit] = useState<"metric" | "imperial">("metric");
 

@@ -18,7 +18,7 @@ export  function GetLocation(city?: { city: string }) {
         // }
       );
     } else {
-      setLocation("Pokhara");
+      setLocation("Tokyo");
      
     }
   }, [city]);

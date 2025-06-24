@@ -7,7 +7,7 @@ import type { TAstronomyData } from "~/interface/interface.index";
 import { getAstronomy } from "~/lib/weather.api";
 
 interface AstronomyComponentProps {
-  location?: string;
+  location: string;
 }
 
 interface SunMoonStats {
@@ -17,7 +17,7 @@ interface SunMoonStats {
   subValue?: string;
 }
 
-export function SunInfo({ location = "Pokhara" }: AstronomyComponentProps) {
+export function SunInfo({ location }: AstronomyComponentProps) {
   const [astronomyData, setAstronomyData] = useState<TAstronomyData | null>(
     null,
   );
@@ -190,7 +190,7 @@ export function SunInfo({ location = "Pokhara" }: AstronomyComponentProps) {
   );
 }
 
-export function MoonInfo({ location = "Pokhara" }: AstronomyComponentProps) {
+export function MoonInfo({ location }: AstronomyComponentProps) {
   const [astronomyData, setAstronomyData] = useState<TAstronomyData | null>(
     null,
   );
