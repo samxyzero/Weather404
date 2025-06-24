@@ -1,5 +1,12 @@
 import Footer from "~/components/footer";
 import "~/styles/globals.css";
+
+export const metadata = {
+  title: "Weather App",
+  description: "Simple weather app to get current weather and forecast",
+  icons: [{ rel: "icon", url: "/favicon.jpeg" }],
+};
+
 export default function RootLayout({
   children,
 }: Readonly<{ children: React.ReactNode }>) {
